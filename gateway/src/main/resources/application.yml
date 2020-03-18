@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: gateway
+server:
+  port: 8080
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8762/eureka/,http://127.0.0.1:8763/eureka/
+zuul:
+  routes:
+  # client 即 Eureka Client 服务的 spring.application.name
+  # /myClient/** 即 Eureka Client 服务的所有接口可通过这种方式访问
+    account: /myClient/**
+  # 既然我们已将 Eureka Client 服务接口的请求方式改变了，
+  # 那就不希望可以通过下面这种方式还可以访问到，这也是 Zuul 的默认访问方式，
+  # 所以使用如下配置可以禁用该种方式的访问，如有其他服务，配置方式类似
+  ignored-patterns:
+    - /account/**
+    # - /client-2/**
