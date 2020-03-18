@@ -5,16 +5,16 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/bearpotman/config-repo
-          username: yourGitUsername
-          password: yourGitPassword
+          uri: https://github.com/taoyupu/com.typ
+          username: 15756270374@163.com
+          password: yuanyuan.1314520
           basedir: C:/workSpace/IdeaProjects/spring-cloud-demo/configFiles
 server:
   port: 9090
 eureka:
   client:
     service-url:
-      defaultZone: http://127.0.0.1:8761/eureka/
+      defaultZone: http://127.0.0.1:8762/eureka/
 # 以下配置适用于前期调试配置刷新功能，如果配置了自动刷新则不需要该配置
 # 手动刷新接口地址 http://localhost:9090/actuator/bus-refresh
 # 官方文档地址 https://cloud.spring.io/spring-cloud-static/Greenwich.SR1/single/spring-cloud.html#_bus_refresh_endpoint
