@@ -16,16 +16,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RefreshScope
 public class ClientTest {
 
-    @Value("${env}")
-    public String env;
+    @Value("${test}")
+    public String test;
 
-    @GetMapping("/env")
-    public String getEnv() {
-        return env;
+    @GetMapping("/test")
+    public String getTest() {
+        return test;
     }
 
     @GetMapping("/getMessage")
     public String getMessage() {
+        System.out.println(test);
         return "hello, I am client.";
     }
 }

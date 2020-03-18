@@ -3,13 +3,17 @@ spring:
     name: account
   cloud:
     config:
-      discovery:
-        enabled: true
-        service-id: CONFIG
+      name: application
       profile: dev
+      label: master
+      uri: http://localhost:9090/
+#      discovery:
+#        enabled: true
+#        service-id: config
+
 server:
   port: 8081
 eureka:
   client:
     service-url:
-      defaultZone: http://127.0.0.1:8762/eureka/,http://127.0.0.1:8763/eureka/
+      defaultZone: http://127.0.0.1:8762/eureka/
