@@ -7,12 +7,22 @@ spring:
       profile: dev
       label: master
       uri: http://localhost:9090/
-#      discovery:
-#        enabled: true
-#        service-id: config
+      discovery:
+        enabled: true
+        service-id: config
 
 server:
   port: 8081
+#
+#rabbitmq:    					        #本地环境不需要配置mq
+#  host: localhost
+#  port: 5672
+#  username: guest
+#  password: guest
+
+management:
+  security:
+    ena: false
 eureka:
   client:
     service-url:

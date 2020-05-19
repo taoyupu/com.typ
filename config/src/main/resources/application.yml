@@ -11,6 +11,17 @@ spring:
           default-label: master
           search-paths: /**
           basedir: D:/test
+      discovery:
+              # 指定Config Server在服务发现中的service Id ,默认为configserver
+              service-id: ARTISAN-CONFIG
+              # 表示使用服务发现组件中的Config Server,而不自己指定Config Server的uri,默认为false
+              enabled: true
+#  rabbitmq:					#本地环境不需要配置mq，但是需要启动mq,Springboot会自动连接本地mq
+#    host: localhost
+#    port: 5672
+#    username: guest
+#    password: guest
+
 server:
   port: 9090
 eureka:
@@ -20,8 +31,8 @@ eureka:
 # 以下配置适用于前期调试配置刷新功能，如果配置了自动刷新则不需要该配置
 # 手动刷新接口地址 http://localhost:9090/actuator/bus-refresh
 # 官方文档地址 https://cloud.spring.io/spring-cloud-static/Greenwich.SR1/single/spring-cloud.html#_bus_refresh_endpoint
-#management:
-#  endpoints:
-#    web:
-#      exposure:
-#        include: bus-refresh
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh

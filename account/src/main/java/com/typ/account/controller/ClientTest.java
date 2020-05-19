@@ -2,7 +2,7 @@ package com.typ.account.controller;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -16,17 +16,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RefreshScope
 public class ClientTest {
 
-    @Value("${test}")
-    public String test;
+    @Value("${parameter}")
+    private String parameter;
+//
+//    @GetMapping("/test")
+//    public String getTest() {
+//        return test;
+//    }
 
-    @GetMapping("/test")
-    public String getTest() {
-        return test;
-    }
-
-    @GetMapping("/getMessage")
+    @RequestMapping("/getMessage")
     public String getMessage() {
-        System.out.println(test);
-        return "hello, I am client.";
+        System.out.println(parameter);
+        return parameter;
     }
 }
