@@ -10,7 +10,7 @@ spring:
           password: yuanyuan.1314520
           default-label: master
           search-paths: /**
-          basedir: D:/test
+#          basedir: D:/test
       discovery:
               # 指定Config Server在服务发现中的service Id ,默认为configserver
               service-id: ARTISAN-CONFIG
@@ -32,7 +32,10 @@ eureka:
 # 手动刷新接口地址 http://localhost:9090/actuator/bus-refresh
 # 官方文档地址 https://cloud.spring.io/spring-cloud-static/Greenwich.SR1/single/spring-cloud.html#_bus_refresh_endpoint
 management:
-  endpoints:
+  endpoints:  # 暴露bus 接口 ，否则 更新 refresh 没用的
     web:
-      exposure:
-        include: bus-refresh
+      exposure:    # expose: "*" 已过期
+        include: "*"
+  endpoint:
+    bus-refresh:
+      enabled: true

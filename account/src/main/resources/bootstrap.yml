@@ -8,8 +8,8 @@ spring:
       label: master
       uri: http://localhost:9090/
       discovery:
-        enabled: true
-        service-id: config
+        enabled: true #启动服务发现的功能，开启了才能调用其它服务
+        service-id: config #发现的服务的名字
 
 server:
   port: 8081
@@ -20,10 +20,16 @@ server:
 #  username: guest
 #  password: guest
 
-management:
-  security:
-    ena: false
+#
+#management:
+#  security:
+#    ena: false
 eureka:
   client:
     service-url:
       defaultZone: http://127.0.0.1:8762/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
